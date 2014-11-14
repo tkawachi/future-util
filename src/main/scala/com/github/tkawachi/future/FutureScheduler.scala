@@ -6,7 +6,7 @@ import scala.concurrent.duration.Duration
 import scala.concurrent.{ ExecutionContext, Future, Promise }
 
 class FutureScheduler(daemon: Boolean) {
-  val timer = new Timer("FutureScheduler", daemon)
+  private[this] val timer = new Timer("FutureScheduler", daemon)
 
   def after[A](duration: Duration)(f: => A)(implicit ec: ExecutionContext): Future[A] =
     afterWith(duration)(Future(f))
