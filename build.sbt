@@ -9,3 +9,5 @@ scalaVersion := "2.11.4"
 scalariformSettings
 
 doctestSettings
+
+doctestTestFramework := DoctestTestFramework.ScalaTest
