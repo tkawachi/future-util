@@ -1,15 +1,12 @@
-organization := "com.github.tkawachi"
+val commonSettings = Seq(
+  organization := "com.github.tkawachi",
+  scalaVersion := "2.11.4",
+  crossScalaVersions := Seq("2.10.4", "2.11.4"),
+  doctestTestFramework := DoctestTestFramework.ScalaTest
+) ++ scalariformSettings ++ doctestSettings
 
-name := "future-util"
-
-version := "0.0.1-SNAPSHOT"
-
-scalaVersion := "2.11.4"
-
-crossScalaVersions := Seq("2.10.4", "2.11.4")
-
-scalariformSettings
-
-doctestSettings
-
-doctestTestFramework := DoctestTestFramework.ScalaTest
+lazy val root = project.in(file("."))
+  .settings(commonSettings :_*)
+  .settings(
+    name := "future-util"
+  )
