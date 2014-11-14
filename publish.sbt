@@ -5,6 +5,8 @@ sonatypeSettings
 
 releaseSettings
 
+ReleaseKeys.crossBuild := true
+
 def runTaskStep[A](task: TaskKey[A]) =
   ReleaseStep(state => Project.extract(state).runTask(task, state)._1)
 
