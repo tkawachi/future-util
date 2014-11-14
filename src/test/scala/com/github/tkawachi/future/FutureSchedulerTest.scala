@@ -31,7 +31,7 @@ class FutureSchedulerTest extends FunSpec with BeforeAndAfter with Matchers {
     }
   }
 
-  def delayedPrint(d: Duration): Future[Unit] = FutureScheduler.after(d) {
+  def delayedPrint(d: Duration): Future[Unit] = FutureScheduler.schedule(d) {
     println(s"${d.toMillis} msec has been passed in ${Thread.currentThread()}")
   }
 
