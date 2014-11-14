@@ -26,7 +26,7 @@ object FutureScheduler {
   /**
    * The global scheduler.
    *
-   * It creates underlying a daemon thread.
+   * It creates an underlying daemon thread.
    */
   lazy val global = new FutureScheduler(true)
 
