@@ -13,8 +13,8 @@ Add a following line to `build.sbt`.
 Using `Thread.sleep()` blocks the running thread.
 It's not recommended to waste a thread when working with `Future`.
 
+	// NG: Blocking the thread in ExecutionContext.
 	val futureSum: Future[Int] = Future {
-		// BLOCKING the thread in ExecutionContext. Not recommended.
 		Thread.sleep(1000)
 		1 + 1
 	}
@@ -23,7 +23,9 @@ With `FutureScheduler` you can write:
 
 	import scala.concurrent.duration._
 	import com.tkawachi.github.future.FutureScheduler
-	val futureSum: Future[Int] = FutureScheduler.schedule(1.second) {
+	
+	// OK: Non-blocking.
+	val futureSum: Futue[Int] = FutureScheduler.schedule(1.second) {
 		1 + 1
 	}
 
